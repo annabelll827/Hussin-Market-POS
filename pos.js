@@ -1,13 +1,32 @@
 let cart = [];
 
-const productName = document.getElementById("productName");
-const productPrice = document.getElementById("productPrice");
+let products = JSON.parse(localStorage.getItem("products")) || [];
+
+const productSelect = document.getElementById("productSelect");
 const addCart = document.getElementById("addCart");
 const cartTable = document.getElementById("cartTable");
 const total = document.getElementById("total");
 const checkout = document.getElementById("checkout");
 
 
+// پیشاندانی کاڵاکان لە لیست
+function loadProducts() {
+
+    products.forEach((product) => {
+
+        let option = document.createElement("option");
+
+        option.value = product.price;
+        option.textContent = `${product.name} - $${product.price}`;
+
+        productSelect.appendChild(option);
+
+    });
+
+}
+
+
+// پیشاندانی سەبەتە
 function showCart() {
 
     let rows = `
@@ -40,44 +59,44 @@ function showCart() {
 }
 
 
+// زیادکردنی کاڵا بۆ سەبەتە
 addCart.addEventListener("click", () => {
 
-    if(productName.value === "" || productPrice.value === "") {
-        alert("تکایە ناوی کاڵا و نرخ بنووسە");
+    let selected = productSelect.options[productSelect.selectedIndex];
+
+    if(selected.value === ""){
+        alert("تکایە کاڵایەک هەڵبژێرە");
         return;
     }
 
-
     cart.push({
-        name: productName.value,
-        price: productPrice.value
+        name: selected.textContent.split(" - ")[0],
+        price: selected.value
     });
-
-
-    productName.value = "";
-    productPrice.value = "";
 
     showCart();
 
 });
 
 
+// سڕینەوەی کاڵا
 function removeItem(index){
 
-    cart.splice(index, 1);
+    cart.splice(index,1);
     showCart();
 
 }
 
 
+// تەواوکردنی فرۆشتن
 checkout.addEventListener("click", () => {
 
     if(cart.length === 0){
-        alert("هیچ کاڵایەک نییە");
+        alert("سەبەتەکە بەتاڵە");
         return;
     }
 
-    alert("فرۆشتن بە سەرکەوتوویی تەواو بوو");
+    alert("فرۆشتن تەواو بوو ✅");
 
     cart = [];
     showCart();
@@ -85,4 +104,5 @@ checkout.addEventListener("click", () => {
 });
 
 
+loadProducts();
 showCart();
