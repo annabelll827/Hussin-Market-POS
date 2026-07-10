@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ku" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POS - Hussin Market</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+
+<div class="sidebar">
+    <h2>Hussin POS</h2>
+
+    <a href="dashboard.html">🏠 Dashboard</a>
+    <a href="pos.html">🛒 POS</a>
+    <a href="products.html">📦 Products</a>
+    <a href="#">📊 Reports</a>
+    <a href="#">⚙️ Settings</a>
+    <a href="index.html">🚪 Logout</a>
+</div>
+
+
+<div class="main">
+
+    <h1>سیستەمی فرۆشتن</h1>
+
+    <div class="box">
+
+        <h2>زیادکردنی کاڵا بۆ فرۆشتن</h2>
+
+        <input type="text" id="productName" placeholder="ناوی کاڵا">
+        <input type="number" id="productPrice" placeholder="نرخ">
+
+        <button id="addCart">زیادکردن</button>
+
+    </div>
+
+
+    <div class="box">
+
+        <h2>سەبەتە</h2>
+
+        <table id="cartTable">
+
+            <tr>
+                <th>کاڵا</th>
+                <th>نرخ</th>
+                <th>کردار</th>
+            </tr>
+
+        </table>
+
+        <h2>
+            کۆی گشتی: $<span id="total">0</span>
+        </h2>
+
+        <button id="checkout">تەواوکردنی فرۆشتن</button>
+
+    </div>
+
+</div>
+
+
+<script src="pos.js"></script>
+
+</body>
+</html>
