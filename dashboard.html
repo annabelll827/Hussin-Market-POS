@@ -1,61 +1,91 @@
-<!DOCTYPE html>
-<html lang="ku">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hussin Market POS</title>
-    <link rel="stylesheet" href="dashboard.css">
-</head>
-<body>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
 
-<div class="sidebar">
-    <h2>Hussin POS</h2>
+body{
+    background:#f5f7fb;
+    direction:rtl;
+}
 
-    <a href="dashboard.html">🏠 Dashboard</a>
-    <<a href="pos.html">🛒 POS</a>
-    <a href="./products.html">📦 Products</a>
-    <a href="#">📊 Reports</a>
-    <a href="#">⚙️ Settings</a>
-    <a href="index.html">🚪 Logout</a>
-</div>
 
-<div class="main">
+/* Sidebar */
 
-    <div class="header">
-        <h1>Dashboard</h1>
-        <p>Welcome, Admin 👋</p>
-    </div>
+.sidebar{
+    width:270px;
+    height:100vh;
+    background:#111827;
+    padding:25px;
+    position:fixed;
+    right:0;
+    top:0;
+}
 
-    <div class="cards">
 
-        <div class="card">
-            <h3>💰 Today Sales</h3>
-            <h2>0 IQD</h2>
-        </div>
+.logo{
+    text-align:center;
+    color:white;
+    margin-bottom:40px;
+}
 
-        <div class="card">
-            <h3>📦 Products</h3>
-            <h2>0</h2>
-        </div>
+.logo h2{
+    font-size:25px;
+}
 
-        <div class="card">
-            <h3>🛒 Orders</h3>
-            <h2>0</h2>
-        </div>
+.logo p{
+    color:#9ca3af;
+    margin-top:5px;
+}
 
-        <div class="card">
-            <h3>📈 Profit</h3>
-            <h2>0 IQD</h2>
-        </div>
 
-    </div>
+.sidebar a{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    color:#d1d5db;
+    text-decoration:none;
+    padding:16px;
+    margin:12px 0;
+    border-radius:15px;
+    font-size:17px;
+    transition:.3s;
+}
 
-    <div class="welcome">
-        <h2>🏪 Hussin Market POS System</h2>
-        <p>Welcome to your market management dashboard.</p>
-    </div>
 
-</div>
+.sidebar a:hover,
+.sidebar .active{
+    background:#2563eb;
+    color:white;
+}
 
-</body>
-</html>
+
+/* Main */
+
+.main{
+    margin-right:270px;
+    padding:35px;
+}
+
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+}
+
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:20px;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
+
+
+.card p{
+    font-size:30px;
+    color:#2563eb;
+    margin-top:15px;
+}
